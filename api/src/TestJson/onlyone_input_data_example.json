@@ -1,0 +1,7 @@
+{
+    "action": "getUser",
+    "data": 
+    {
+        "id": 1
+    }
+}
