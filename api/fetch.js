@@ -12,7 +12,7 @@ var requestOptions = {
     body: raw,
     redirect: 'follow'
 };
-fetch('api-cpp-sugar-free-1.0\main', requestOptions)
+fetch('http://192.168.142.128/api/main.bin', requestOptions)
 .then(response => response.text())
 .then(result => console.log(result))
 .catch(error => console.log('error', error))
