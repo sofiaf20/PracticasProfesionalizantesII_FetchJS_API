@@ -4,7 +4,7 @@
 * Released under the GPL3 license
 * https://opensource.org/licenses/GPL-3.0
 **/
-
+//archivo cpp que se vincula con las peticiones y respuestas del servicio
 #include <iostream>
 #include <memory>
 #include <cppset/IService.h>
@@ -13,13 +13,14 @@
 class TestService : public IService
 {
     private:
+    //atributo con datos json y puntero inteligente para el handler.
         nlohmann::json data;
         std::shared_ptr<ResponseHandler> responseHandler;
 
-        //SERVICES ACTIONS:
+        //SERVICES ACTIONS: // acciones que llamara el servicio
         void create()
         {
-            std::string service = this->data["service"];
+            std::string service = this->data["service"]; // vincula el string servicio con los datos json para que retorne la respuesta como un string
             nlohmann::json responseData = {
                             {"error_status", false},
                             {"message", "Create OK"},
@@ -79,7 +80,7 @@ class TestService : public IService
             this->responseHandler = std::make_shared<ResponseHandler>();
         }
 
-        void call(nlohmann::json data)
+        void call(nlohmann::json data) // metodo que llama de forma multiple con parametro json a las otras acciones_metodos
         {
             this->data = data;
             std::string action = this->data["action"];
@@ -90,7 +91,7 @@ class TestService : public IService
         }
 };
 
-extern "C" std::shared_ptr<IService> create(std::string);
+extern "C" std::shared_ptr<IService> create(std::string); // codigo en base de C para verificar si el nombre del servicio es igual al que pase, sino te devuelve un null
 
 std::shared_ptr<IService> create(std::string typeinfo)
 {
