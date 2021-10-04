@@ -11,7 +11,7 @@
 #include <iostream>
 #include <vendors/nlohmann/json.hpp>
 
-class IService
+class IService // una interfaz de llamar los datos json
 {
 	public:
 		virtual void call(nlohmann::json data) = 0;
