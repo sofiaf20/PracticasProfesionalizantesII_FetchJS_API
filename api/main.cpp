@@ -11,5 +11,5 @@
 int main()
 {
 	std::shared_ptr<RequestHandler> requestHandler(new RequestHandler()); // con un puntero inteligente crea una solicitud
-	requestHandler->handle(); // llama al metodo handle que es el que se encarga de
+	requestHandler->handle(); // llama al metodo handle que es el que se encarga de traer la respuesta de los datos
 }
