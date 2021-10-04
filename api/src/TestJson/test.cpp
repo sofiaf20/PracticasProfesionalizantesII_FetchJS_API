@@ -10,7 +10,7 @@
 #include <fstream>
 
 #include <vendors/nlohmann/json.hpp>
-using json = nlohmann::json;
+using json = nlohmann::json; // crea un tipo json vinculado con el archivo nlohmann
 
 int main()
 {
@@ -56,17 +56,17 @@ int main()
     // the setw manipulator was overloaded to set the indentation for pretty printing
     //~ std::cout << std::setw(4) << j << std::endl;
 
-    // read a JSON file
+    // read a JSON file // lectura del archivo example.json
     std::ifstream i("./example.json");
     json j;
     i >> j;
-    std::cout << std::setw(4) << j << std::endl;
+    std::cout << std::setw(4) << j << std::endl; //con un espacio de 4
 
-    // write prettified JSON to another file
+    // write prettified JSON to another file //escritura hacia otro archivo ...
     std::ofstream o("./pretty.json");
     o << std::setw(4) << j << std::endl;
 
-    std::cout << "" << std::endl;
+    std::cout << "" << std::endl;  // output con resultado
     std::cout << "RESULT:" << std::endl;
     std::cout << "\t\tTEST JSON FILE OK!!!!!" << std::endl;
     std::cout << "" << std::endl;
@@ -76,7 +76,7 @@ int main()
     std::cout << "STANDARD INPUT JSON:" << std::endl;
     // deserialize from standard input
     json j2;
-    try
+    try // espera un input
     {
         std::cin >> j2; 
         std::cout << std::setw(4) << j2 << std::endl; 
