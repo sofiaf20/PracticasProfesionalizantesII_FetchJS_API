@@ -46,7 +46,7 @@ IniReader* IniReader::selectSection( std::string section )
 
     ReadFile();
     std::string _buffer;
-    size_t posInitialBuffer = _BufferData.find("["+section+"]");
+    size_t posInitialBuffer = _BufferData.find("["+section+"]"); // busca el tamaño del archivo en lectura y utiliza como posinicial
 
     if (_BufferData.find("["+section+"]") == (std::string::npos))
     {
