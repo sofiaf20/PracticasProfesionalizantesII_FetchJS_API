@@ -20,13 +20,13 @@ class ResponseHandler
         // nlohmann::json data;
 
     public:   
-        // ResponseHandler()
+        // ResponseHandler() 
         // {
         //    this->errorStatus = false;
         //    this->message = "Ok"; 
         // }
 
-        // void setErrorStatus(bool errorStatus)
+        // void setErrorStatus(bool errorStatus) // set de mensaje de respuesta
         // {
         //     this->errorStatus = errorStatus;
         // }
@@ -41,7 +41,7 @@ class ResponseHandler
         //     this->data = data;
         // }
 
-        virtual void handle(nlohmann::json responseData)
+        virtual void handle(nlohmann::json responseData) // metodo abstracto con la respuesta en un output
         {
             std::cout << "Content-type:application/json; charset=utf-8\r\n\r\n";
             std::cout << responseData;
