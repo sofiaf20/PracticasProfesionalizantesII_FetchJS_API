@@ -21,11 +21,11 @@ class RequestHandler
         nlohmann::json getRequestData()
         {
             //deserialize from standard input
-            nlohmann::json requestData;
+            nlohmann::json requestData; // datos con json
             
             try
             {
-                std::cin >> requestData;
+                std::cin >> requestData;// solicita un input de datos
             }
             catch(nlohmann::json::exception& e)
             {
@@ -51,7 +51,7 @@ class RequestHandler
         
         virtual ~RequestHandler(){}
 
-        void handle()
+        void handle() // iniciliza el lector con el nombre mas el path
         {
             std::shared_ptr<IniReader> iniReader( new IniReader() );
             iniReader->open("configuration.ini");
@@ -60,10 +60,10 @@ class RequestHandler
             nlohmann::json requestData = this->getRequestData();
             std::string serviceName = requestData["service"];
 
-            std::shared_ptr<ComponentFactory> cF(new ComponentFactory());
+            std::shared_ptr<ComponentFactory> cF(new ComponentFactory()); // crea el componente
             std::shared_ptr<IService> service = cF->create<IService>(servicesPath + serviceName);
             
-            service->call(requestData);
+            service->call(requestData); // llama a la solicitud
         }
 };
 #endif // I_REQUEST_HANDLER_H
