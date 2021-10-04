@@ -22,7 +22,7 @@
 #include <string>
 #include <iostream>
 
-class LibraryLoader
+class LibraryLoader // carga librerias para los dll
 {
     public:
         LibraryLoader();
